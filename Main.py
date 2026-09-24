@@ -12,4 +12,4 @@ df = pd.DataFrame(data)
  
 # Display the DataFrame
 print("Full DataFrame:") 
-print(df)
+print(df.loc[2], 'Name')
