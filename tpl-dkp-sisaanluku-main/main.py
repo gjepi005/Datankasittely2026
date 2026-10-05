@@ -9,12 +9,14 @@ from utils.validators import validate_items
 
 
 def main():
-
+    
     api_url = "https://jsonplaceholder.typicode.com/posts"
     
     print("Fetching paginated data…")
     # Fetch items
     data = fetch_data(api_url)
+    if data is None:
+        return
     print("Validating items…")
     isValid = validate_items(data)
     if isValid:

@@ -1,19 +1,18 @@
-import requests as rq
+import requests
 
 def fetch_data(api_url):
     try:
-       data =rq.get(api_url)
+       data =requests.get(api_url)
        data.raise_for_status()
        return data.json()
-    except rq.exceptions.HTTPError as e:
-        if e.response is not None:
-            status = e.response.raise_for_status()
-        else:
-            status = "unknown"
-        print("HTTPError... " + status + " " + e)
+    except requests.exceptions.HTTPError as e:
+        print(e)
+        return None
+    except ValueError as e:
+        print(e)
         return None
     except Exception as e:
-        print("something went wrong... " + e)
+        print(e)
         return None
 
 
