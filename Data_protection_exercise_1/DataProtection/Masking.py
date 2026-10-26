@@ -1,3 +1,4 @@
+import pandas
 def mask(people):
     """
     TODO: Mask emails and phone numbers:
@@ -6,4 +7,9 @@ def mask(people):
     - return same datastructure with masked data
     """
     
-    pass
+    df = pandas.DataFrame(people)
+    df["email"] = df["email"].str.replace(r"[^@](?=[^@]*@)", "*", regex=True)
+    df["phone"] = df["phone"].str.replace(r"\d(?=.*\d{2}$)", "*", regex=True)
+    print(df)
+    
+    return df.to_dict(orient="records")
