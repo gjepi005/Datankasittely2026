@@ -33,7 +33,7 @@ def main():
         session.close()
         print("Users inserted into database.")
     except Exception as e:
-        print("Problem while fetching user data")
+        print(f"Problem while fetching user data {e}")
 
 
 def save_Protected_Data(protected_data):
