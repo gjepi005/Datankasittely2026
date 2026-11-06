@@ -9,4 +9,4 @@ def mask(people):
         
         return df
     except Exception as e:
-        print("Masking error: " + {e})
+        print(f"Masking error: {e}")
